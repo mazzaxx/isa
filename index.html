@@ -1,96 +1,99 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Convite Belinha</title>
-  <style>
-    body {
-      background-color: #c8a2c8;
-      margin: 0;
-      padding: 0;
-      font-family: monospace;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convite Fofo</title>
+    <style>
+      body {
+        background-color: #c8a2c8;
+        margin: 0;
+        padding: 0;
+        font-family: monospace;
+      }
 
-    .painel {
-      margin: 20px auto;
-      background-color: white;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 15px;
-      text-align: center;
-      padding: 30px 10px;
-      position: relative;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
+      .painel {
+        margin: 20px auto;
+        background-color: white;
+        width: 90%;
+        max-width: 400px;
+        border-radius: 15px;
+        text-align: center;
+        padding: 30px 10px;
+        position: relative;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
 
-    .painel h1, .painel h2 {
-      margin: 10px 0;
-    }
+      .painel h1,
+      .painel h2 {
+        margin: 10px 0;
+      }
 
-    .painel img {
-      max-width: 100%;
-      height: auto;
-    }
+      .painel img {
+        max-width: 100%;
+        height: auto;
+      }
 
-    #sim, #nao {
-      height: 40px;
-      width: 80px;
-      background-color: #c8a2c8;
-      border: 2px solid white;
-      border-radius: 10px;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      margin: 20px 10px 0;
-    }
+      #sim,
+      #nao {
+        height: 40px;
+        width: 80px;
+        background-color: #c8a2c8;
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 20px 10px 0;
+      }
 
-    #nao {
-      position: absolute;
-    }
+      #nao {
+        position: absolute;
+      }
 
-    #contador {
-      font-size: 14px;
-      margin-top: 10px;
-      color: #555;
-    }
-  </style>
-</head>
-<body>
-  <div class="painel">
-    <h1>Oi belinha, quero te fazer um CONVITE!</h1>
-    <img src="https://i.pinimg.com/originals/be/4c/b9/be4cb962b15a0b0fa473dc98f5c9d196.gif" alt="gif fofo" />
-    <h2>Confia em mim e aceita?</h2>
+      #contador {
+        font-size: 14px;
+        margin-top: 10px;
+        color: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="painel">
+      <h1>Oi belinha, quero te fazer um CONVITE!</h1>
+      <img
+        src="https://i.pinimg.com/originals/be/4c/b9/be4cb962b15a0b0fa473dc98f5c9d196.gif"
+        alt="gif fofo"
+      />
+      <h2>Confia em mim e aceita?</h2>
 
-    <a href="Convite fofo.png"><button id="sim">SIM!</button></a>
-    <button onmouseover="fuja()" id="nao">NÃO!</button>
+      <a href="Convite fofo.png"><button id="sim">SIM!</button></a>
+      <button onmouseover="fuja()" id="nao">NÃO!</button>
+    </div>
 
-    <p id="contador">Tentativas de fuga: 0</p>
-  </div>
+    <script>
+      let fugas = 0;
+      const limiteFugas = 1000;
 
-  <script>
-    let fugas = 0;
-    const limiteFugas = 1000;
+      function fuja() {
+        if (fugas >= limiteFugas) return;
 
-    function fuja() {
-      if (fugas >= limiteFugas) return;
+        const botaonao = document.getElementById("nao");
+        const larguraJanela = window.innerWidth;
+        const alturaJanela = window.innerHeight;
 
-      const botaonao = document.getElementById("nao");
-      const larguraJanela = window.innerWidth;
-      const alturaJanela = window.innerHeight;
+        const maxX = larguraJanela - botaonao.offsetWidth;
+        const maxY = alturaJanela - botaonao.offsetHeight;
 
-      const maxX = larguraJanela - botaonao.offsetWidth;
-      const maxY = alturaJanela - botaonao.offsetHeight;
+        const aleatorioX = Math.floor(Math.random() * maxX);
+        const aleatorioY = Math.floor(Math.random() * maxY);
 
-      const aleatorioX = Math.floor(Math.random() * maxX);
-      const aleatorioY = Math.floor(Math.random() * maxY);
+        botaonao.style.left = aleatorioX + "px";
+        botaonao.style.top = aleatorioY + "px";
 
-      botaonao.style.left = aleatorioX + "px";
-      botaonao.style.top = aleatorioY + "px";
-
-      fugas++;
-      document.getElementById("contador").innerText = `Tentativas de fuga: ${fugas}`;
-    }
-  </script>
-</body>
+        fugas++;
+        document.getElementById("contador");
+      }
+    </script>
+  </body>
 </html>
