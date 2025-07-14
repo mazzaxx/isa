@@ -1,84 +1,80 @@
 <!DOCTYPE html>
-<html lang="Pt-Br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convite Fofo</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Convite Fofo</title>
+  <style>
+    body {
+      background-color: #c8a2c8;
+      margin: 0;
+      padding: 0;
+      font-family: monospace;
+    }
+
+    .painel {
+      margin: 20px auto;
+      background-color: white;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 15px;
+      text-align: center;
+      padding: 30px 10px;
+      position: relative;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .painel h1, .painel h2 {
+      margin: 10px 0;
+    }
+
+    .painel img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    #sim, #nao {
+      height: 40px;
+      width: 80px;
+      background-color: #c8a2c8;
+      border: 2px solid white;
+      border-radius: 10px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 20px 10px 0;
+    }
+
+    #nao {
+      position: absolute;
+    }
+  </style>
 </head>
+<body>
+  <div class="painel">
+    <h1>Oi belinha, quero te fazer um CONVITE!</h1>
+    <img src="https://i.pinimg.com/originals/be/4c/b9/be4cb962b15a0b0fa473dc98f5c9d196.gif" alt="gif fofo" />
+    <h2>Confia em mim e aceita?</h2>
 
-<style>
- body {
-            background-color: #c8a2c8;
-        }
+    <a href="Convite fofo.png"><button id="sim">SIM!</button></a>
+    <button onmouseover="fuja()" id="nao">NÃO!</button>
+  </div>
 
-        .painel{
-            margin: auto;
-            background-color: white;
-            width: 500px;
-            height: 500px;
-            border-radius: 15px;
-            text-align: center;
-            padding-top: 50px;
-            font-family: monospace;
-        }
+  <script>
+    function fuja() {
+      const botaonao = document.getElementById("nao");
+      const larguraJanela = window.innerWidth;
+      const alturaJanela = window.innerHeight;
 
-        #sim{
-            height: 40px;
-            width: 60px;
-            background-color: #c8a2c8;
-            border: 2px solid white;
-            border-radius: 10px;
-            color: white;
-            margin-left: -130px;
-        }
+      const maxX = larguraJanela - botaonao.offsetWidth;
+      const maxY = alturaJanela - botaonao.offsetHeight;
 
-        #nao{
-            position: absolute;
-            height: 40px;
-            width: 60px;
-            background-color: #c8a2c8;
-            border: 2px solid white;
-            border-radius: 10px;
-            color: white;
-            margin-left: 70px;
+      const aleatorioX = Math.floor(Math.random() * maxX);
+      const aleatorioY = Math.floor(Math.random() * maxY);
 
-            .img{
-                 width: 90px;
-                 height: 20px;
-            }
-            
-        }
-</style>
-
-    <div class ="painel">
-        <h1>Oi belinha, quero te fazer um CONVITE!</h1>
-        <img src="https://i.pinimg.com/originals/be/4c/b9/be4cb962b15a0b0fa473dc98f5c9d196.gif" alt="">
-        <h2>Confia em mim e aceita?</h2>
-
-        <a href="Convite fofo.png"><button id = "sim" > SIM! </button></a>
-        <button onmouseover="fuja()" id="nao"> NÃO! </button>
-
-    </div>
-
-    <script>
-        function fuja(){
-    var botaonao = document.getElementById ("nao")
-
-    var larguraJanela = window.innerWidth;
-    var alturaJanela = window.innerHeight;
-
-    var maxX = larguraJanela - botaonao.offsetWidth;
-    var maxY = alturaJanela - botaonao.offsetHeight
-
-    var aleatorioX = Math.floor (Math.random() * maxX);
-    var aleatorioY = Math.floor (Math.random() * maxY);
-
-    botaonao.style.left = aleatorioX + "px";
-    botaonao.style.top = aleatorioY + "px";
-
-}
-
-    </script>
-    
+      botaonao.style.left = aleatorioX + "px";
+      botaonao.style.top = aleatorioY + "px";
+    }
+  </script>
 </body>
 </html>
