@@ -48,6 +48,12 @@
     #nao {
       position: absolute;
     }
+
+    #contador {
+      font-size: 14px;
+      margin-top: 10px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -58,10 +64,17 @@
 
     <a href="Convite fofo.png"><button id="sim">SIM!</button></a>
     <button onmouseover="fuja()" id="nao">NÃO!</button>
+
+    <p id="contador">Tentativas de fuga: 0</p>
   </div>
 
   <script>
+    let fugas = 0;
+    const limiteFugas = 1000;
+
     function fuja() {
+      if (fugas >= limiteFugas) return;
+
       const botaonao = document.getElementById("nao");
       const larguraJanela = window.innerWidth;
       const alturaJanela = window.innerHeight;
@@ -74,6 +87,9 @@
 
       botaonao.style.left = aleatorioX + "px";
       botaonao.style.top = aleatorioY + "px";
+
+      fugas++;
+      document.getElementById("contador").innerText = `Tentativas de fuga: ${fugas}`;
     }
   </script>
 </body>
